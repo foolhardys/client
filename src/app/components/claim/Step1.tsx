@@ -45,7 +45,7 @@ const Step1: React.FC<StepProps> = ({ completeStep }) => {
         </div>
         <button
           type="submit"
-          className="w-1/6 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+          className="w-full sm:w-1/6 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
         >
           Submit
         </button>
@@ -55,3 +55,4 @@ const Step1: React.FC<StepProps> = ({ completeStep }) => {
 };
 
 export default Step1;
+

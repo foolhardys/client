@@ -8,6 +8,8 @@ import Step3 from "@/app/components/claim/Step3";
 import Step4 from "@/app/components/claim/Step4";
 import Step5 from "@/app/components/claim/Step5";
 import Step6 from "@/app/components/claim/Step6";
+import { FaAlignLeft } from "react-icons/fa6";
+import { RxCross1 } from "react-icons/rx";
 
 const steps = [
   { step: 1, label: "Enter Basic Details" },
@@ -21,6 +23,7 @@ const steps = [
 const ClaimPage: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([1]); // Only step 1 is accessible at the beginning
+  const [menuOpen, setMenuOpen] = useState<boolean>(false); // Toggle menu state for small screens
 
   const goToStep = (step: number) => {
     if (completedSteps.includes(step)) {
@@ -36,8 +39,28 @@ const ClaimPage: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50">
+      {/* Hamburger Button for Small Screens */}
+      <button
+        className="p-4 text-white bg-blue-600 block lg:hidden"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <RxCross1 /> : <FaAlignLeft />}
+      </button>
+
       {/* Sidebar */}
-      <div className="w-1/4 bg-blue-600 p-6 text-white">
+      <div
+        className={`lg:w-1/4 w-full bg-blue-600 p-6 text-white lg:block ${
+          menuOpen ? "block" : "hidden"
+        } lg:h-auto h-screen lg:relative absolute z-10`}
+      >
+        {/* Close Button for Small Screens */}
+        <button
+          className="absolute top-4 right-4 text-white bg-red-600 p-2 rounded-full lg:hidden"
+          onClick={() => setMenuOpen(false)}
+        >
+          <RxCross1 />
+        </button>
+
         <h2 className="text-xl font-bold mb-4">Claim Process</h2>
         <ul className="space-y-4">
           {steps.map(({ step, label }) => (
@@ -76,7 +99,7 @@ const ClaimPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="w-3/4 p-6 bg-gray-900 shadow-lg">
+      <div className="lg:w-3/4 w-full p-6 bg-gray-900 shadow-lg">
         {currentStep === 1 && <Step1 completeStep={completeStep} />}
         {currentStep === 2 && <Step2 completeStep={completeStep} />}
         {currentStep === 3 && <Step3 completeStep={completeStep} />}

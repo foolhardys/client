@@ -33,14 +33,14 @@ const Step2: React.FC<StepProps> = ({ completeStep }) => {
             <option value="">Select a hospital</option>
             <option value="hospital1">Hospital 1</option>
             <option value="hospital2">Hospital 2</option>
-            <option value="hospital2">Hospital 3</option>
-            <option value="hospital2">Hospital 4</option>
-            <option value="hospital2">Hospital 5</option>
+            <option value="hospital3">Hospital 3</option>
+            <option value="hospital4">Hospital 4</option>
+            <option value="hospital5">Hospital 5</option>
           </select>
         </div>
         <button
           type="submit"
-          className="w-1/6 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+          className="w-full sm:w-1/6 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
         >
           Submit
         </button>
